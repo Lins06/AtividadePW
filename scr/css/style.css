@@ -66,7 +66,7 @@ h1{
 }
 
 .caixa{
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 .header {
@@ -224,3 +224,21 @@ input {
   background-color: #000000;
   color: #ffffff;
 }
+
+.products{
+  border: #ddd;
+  border-color: #ddd;
+}
+
+.productimg{
+  border-color: #fafafa;
+  border: #ddd;
+  border-radius: 10%;
+  width: 15%;
+  height: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

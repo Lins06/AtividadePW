@@ -6,7 +6,7 @@ function validarLogin(event) {
     
     if (login === "admin" && senha === "123456") {
         alert("Login bem-sucedido!");
-        window.location.href = "dashboard.html";
+        window.location.href = "/AtividadePW/scr/html/TelaInicial.html";
     } else {
         alert("Login ou senha incorretos!");
     }
