@@ -19,9 +19,94 @@
           </nav>
     </header>
 
-    <div class=".products">
-        <img src="/imagens/Design sem nome (4).png" alt="teste" class="productimg">
+    <h1>ADEGA</h1>
+
+    <div class="FiltersContainer">
+    <div class="filter-box">
+      <label for="filtro">Quantidade MLs</label>
+      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
+        <option value="tudo">Todos</option>
+        <option value="categoria1">250ml</option>
+        <option value="categoria2">300ml</option>
+      </select>
     </div>
+
+    <div class="filter-box">
+      <label for="filtro">Marca</label>
+      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
+        <option value="tudo">Todos</option>
+        <option value="categoria1">Skol</option>
+        <option value="categoria2">Heineken</option>
+        <option value="categoria2">Skol</option>
+        <option value="categoria2">Itaipava</option>
+        <option value="categoria2">Budwaiser</option>
+      </select>
+    </div>
+
+    <div class="filter-box">
+      <label for="filtro">Tipo Embalagem</label>
+      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
+        <option value="tudo">Todos</option>
+        <option value="categoria1">Long Neck</option>
+        <option value="categoria2">Lata</option>
+      </select>
+    </div>
+  </div>
+
+  
+
+    <div class="containerprodutos">
+  <div class="Pcontainer">
+    <img src="/imagens/Cerveja-Heineken-250ml.jpg" alt="teste" class="productimg">
+    <h3>Cerveja Long Neck Heineken 250ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/brahma.png" alt="teste" class="productimg">
+    <h3>Cerveja Long Neck Brahma 250ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/itaipava.png" alt="teste" class="productimg">
+    <h3>Cerveja Long Neck Itaipava 300ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/budwaiser.png" alt="teste" class="productimg">
+    <h3>Cerveja Long Neck Budwaiser 250ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/Skol.png" alt="teste" class="productimg">
+    <h3>Cerveja Long Neck Skol 250ml                    .</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/skollata.png" alt="teste" class="productimg">
+    <h3>Cerveja Lata Skol 250ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/HeinekenLata.png" alt="teste" class="productimg">
+    <h3>Cerveja Lata Heineken 250ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/ItaipavaLata.png" alt="teste" class="productimg">
+    <h3>Cerveja Lata Itaipava 250ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/BudwaiserLata.png" alt="teste" class="productimg">
+    <h3>Cerveja Lata Budwaiser 250ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+  <div class="Pcontainer">
+    <img src="/imagens/brahmalata.png" alt="teste" class="productimg">
+    <h3>Cerveja Lata Brahma 250ml</h3>
+    <button class="add-button">Adicionar</button>
+  </div>
+</div>
 
 </body>
 </html>
