@@ -19,6 +19,11 @@
       </nav>
     </header>
 
+     <div class="cart-container">
+    <h2 class="cart-title">Itens no Carrinho</h2>
+    <ul class="cart-list"></ul>
+  </div>
+
   <div class="container">
     <h2>Informações De Envio</h2>
     <label for="cep">CEP:</label>
@@ -47,7 +52,88 @@
     </div>
   </div>
 
-<script src="/AtividadePW/scr/JavaScript/teste.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cartContainer = document.querySelector(".cart-container");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartContainer.innerHTML += ''; 
+    
+    cart.forEach(product => {
+      const productElement = document.createElement("div");
+      productElement.classList.add("cart-item");
+      productElement.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" style="max-width: 100px;">
+        <h3>${product.name}</h3>
+        <button class="remove-button">Remover</button>
+      `;
+      cartContainer.appendChild(productElement);
+    });
+
+    cartContainer.addEventListener("click", (event) => {
+      if(event.target.classList.contains("remove-button")){
+        const parentItem = event.target.parentElement;
+        const productName = parentItem.querySelector("h3").innerText;
+        cart = cart.filter(item => item.name !== productName);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        parentItem.remove();
+      }
+    });
+  });
+
+  const cepInput = document.getElementById('cep');
+
+cepInput.addEventListener('blur', async () => {
+  const cep = cepInput.value.trim();
+
+  if (cep.length !== 8 || isNaN(cep)) {
+    alert("Digite um CEP válido com 8 números.");
+    return;
+  }
+
+  const viaCepURL = `https://viacep.com.br/ws/${cep}/json/`;
+
+  try {
+    const response = await fetch(viaCepURL);
+    const data = await response.json();
+
+    if (data.erro) {
+      alert("CEP não encontrado.");
+      return;
+    }
+    
+    document.getElementById('rua').value = data.logradouro;
+    document.getElementById('bairro').value = data.bairro;
+    document.getElementById('cidade').value = data.localidade;
+    document.getElementById('estado').value = data.uf;
+
+    buscarClima(data.localidade);
+  } catch (error) {
+    alert("Erro ao buscar CEP.");
+    console.error(error);
+  }
+});
+
+async function buscarClima(cidade) {
+  const apiKey = 'MYKEY'; 
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade},BR&appid=${apiKey}&units=metric&lang=pt_br`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const descricao = data.weather[0].description;
+    const temperatura = data.main.temp;
+
+    document.getElementById('descricao').textContent = `Tempo: ${descricao}`;
+    document.getElementById('temperatura').textContent = `Temperatura: ${temperatura}°C`;
+  } catch (error) {
+    document.getElementById('descricao').textContent = "Não foi possível obter o clima.";
+    document.getElementById('temperatura').textContent = "";
+    console.error(error);
+  }
+}
+</script>
 
 </body>
 </html>

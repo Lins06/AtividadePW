@@ -108,5 +108,29 @@
   </div>
 </div>
 
+<script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const buttons = document.querySelectorAll(".add-button");
+
+          buttons.forEach(button => {
+              button.addEventListener("click", (event) => {
+                  const productContainer = event.target.parentElement;
+                  const product = {
+                      name: productContainer.querySelector("h3").innerText,
+                      image: productContainer.querySelector("img").src
+                  };
+
+                  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                  cart.push(product);
+                  localStorage.setItem("cart", JSON.stringify(cart));
+
+                  alert(`${product.name} foi adicionado ao carrinho!`);
+              });
+          });
+      });
+
+      
+    </script>
+
 </body>
 </html>
