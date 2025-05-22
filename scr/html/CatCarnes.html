@@ -19,94 +19,135 @@
           </nav>
     </header>
 
-    <h1>ADEGA</h1>
+    <h1>AÇOUGUE</h1>
 
     <div class="FiltersContainer">
-    <div class="filter-box">
-      <label for="filtro">Quantidade MLs</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">250ml</option>
-        <option value="categoria2">300ml</option>
-      </select>
-    </div>
-
-    <div class="filter-box">
-      <label for="filtro">Marca</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">Skol</option>
-        <option value="categoria2">Heineken</option>
-        <option value="categoria2">Skol</option>
-        <option value="categoria2">Itaipava</option>
-        <option value="categoria2">Budwaiser</option>
-      </select>
-    </div>
-
-    <div class="filter-box">
-      <label for="filtro">Tipo Embalagem</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">Long Neck</option>
-        <option value="categoria2">Lata</option>
-      </select>
-    </div>
+  <div class="filter-box">
+    <label for="filtro-ml">Quantidade MLs</label>
+    <select id="filtro-ml" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="250ml">250ml</option>
+      <option value="300ml">300ml</option>
+    </select>
   </div>
+
+  <div class="filter-box">
+    <label for="filtro-marca">Marca</label>
+    <select id="filtro-marca" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="skol">Skol</option>
+      <option value="heineken">Heineken</option>
+      <option value="brahma">Brahma</option>
+      <option value="itaipava">Itaipava</option>
+      <option value="budwaiser">Budwaiser</option>
+    </select>
+  </div>
+
+  <div class="filter-box">
+    <label for="filtro-embalagem">Tipo Embalagem</label>
+    <select id="filtro-embalagem" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="longneck">Long Neck</option>
+      <option value="lata">Lata</option>
+    </select>
+  </div>
+</div>
 
   
 
     <div class="containerprodutos">
   <div class="Pcontainer">
-    <img src="/imagens/Cerveja-Heineken-250ml.jpg" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Heineken 250ml</h3>
+    <img src="/imagens/alcatra.png" alt="teste" class="productimg">
+    <h3>Bife carne alcatra 800g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/brahma.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Brahma 250ml</h3>
+    <img src="/imagens/asa de frango.png" alt="teste" class="productimg">
+    <h3>Asa de frango swift 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/itaipava.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Itaipava 300ml</h3>
+    <img src="/imagens/carne moida bovina.png" alt="teste" class="productimg">
+    <h3>Carne moida bovina 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/budwaiser.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Budwaiser 250ml</h3>
+    <img src="/imagens/contra file.png" alt="teste" class="productimg">
+    <h3>Bife de contra file 600g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/Skol.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Skol 250ml                    .</h3>
+    <img src="/imagens/coxa de frango.png" alt="teste" class="productimg">
+    <h3>Coxa de frango swift 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/skollata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Skol 250ml</h3>
+    <img src="/imagens/fraldinha.png" alt="teste" class="productimg">
+    <h3>Fraldinho bronze swift 600g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/HeinekenLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Heineken 250ml</h3>
+    <img src="/imagens/frango inteiro.png" alt="teste" class="productimg">
+    <h3>Frango inteiro congelado 1kg</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/ItaipavaLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Itaipava 250ml</h3>
+    <img src="/imagens/patinho bovino.png" alt="teste" class="productimg">
+    <h3>Patinho bovino swift 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/BudwaiserLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Budwaiser 250ml</h3>
+    <img src="/imagens/peito de frango.png" alt="teste" class="productimg">
+    <h3>Peito de frango 800g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer">
-    <img src="/imagens/brahmalata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Brahma 250ml</h3>
+    <img src="/imagens/picanha.png" alt="teste" class="productimg">
+    <h3>Picanha bovina congelada 800g </h3>
     <button class="add-button">Adicionar</button>
   </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+          const buttons = document.querySelectorAll(".add-button");
+
+          buttons.forEach(button => {
+              button.addEventListener("click", (event) => {
+                  const productContainer = event.target.parentElement;
+                  const product = {
+                      name: productContainer.querySelector("h3").innerText,
+                      image: productContainer.querySelector("img").src
+                  };
+
+                  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                  cart.push(product);
+                  localStorage.setItem("cart", JSON.stringify(cart));
+
+                  alert(`${product.name} foi adicionado ao carrinho!`);
+              });
+          });
+      });
+
+  function FiltrarProdutos() {
+    const filtroML = document.getElementById('filtro-ml').value;
+    const filtroMarca = document.getElementById('filtro-marca').value;
+    const filtroEmbalagemTipo = document.getElementById('filtro-embalagem').value;
+
+    document.querySelectorAll('.Pcontainer').forEach(produto => {
+        const ML = produto.dataset.ml;
+        const Marca = produto.dataset.marca;
+        const EmbalagemTipo = produto.dataset.embalagem;
+
+        const Mostrar = 
+            (filtroML === 'todos' || filtroML === ML) &&
+            (filtroMarca === 'todos' || filtroMarca === Marca) &&
+            (filtroEmbalagemTipo === 'todos' || filtroEmbalagemTipo === EmbalagemTipo);
+
+        produto.style.display = Mostrar ? 'block' : 'none';
+    });
+}
+</script>
 
 </body>
 </html>
