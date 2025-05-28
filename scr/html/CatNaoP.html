@@ -19,94 +19,127 @@
           </nav>
     </header>
 
-    <h1>ADEGA</h1>
+    <h1>NAO PERECIVEIS</h1>
 
     <div class="FiltersContainer">
-    <div class="filter-box">
-      <label for="filtro">Quantidade MLs</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">250ml</option>
-        <option value="categoria2">300ml</option>
-      </select>
-    </div>
-
-    <div class="filter-box">
-      <label for="filtro">Marca</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">Skol</option>
-        <option value="categoria2">Heineken</option>
-        <option value="categoria2">Skol</option>
-        <option value="categoria2">Itaipava</option>
-        <option value="categoria2">Budwaiser</option>
-      </select>
-    </div>
-
-    <div class="filter-box">
-      <label for="filtro">Tipo Embalagem</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">Long Neck</option>
-        <option value="categoria2">Lata</option>
-      </select>
-    </div>
+  <div class="filter-box">
+    <label for="filtro-kg">Quantidade Kgs/Mls</label>
+    <select id="filtro-kg" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="300g">300g</option>
+      <option value="397g">397g</option>
+      <option value="500g">500g</option>
+      <option value="550g">550g</option>
+      <option value="1kg">1kg</option>
+      <option value="300ml">300ml</option>
+      <option value="1l">1L</option>
+    </select>
   </div>
+
+  <div class="filter-box">
+    <label for="filtro-embalagem">Tipo Embalagem</label>
+    <select id="filtro-embalagem" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="saco">Saco Plastico</option>
+      <option value="caixa">Caixa</option>
+      <option value="vidro">Pote De Vidro</option>
+      <option value="plastico">Embalagem Plastica</option>
+    </select>
+  </div>
+</div>
 
   
 
     <div class="containerprodutos">
-  <div class="Pcontainer">
-    <img src="/imagens/Cerveja-Heineken-250ml.jpg" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Heineken 250ml</h3>
+  <div class="Pcontainer" data-kg="550g" data-embalagem="saco">
+    <img src="/imagens/achocolatado.png" alt="NaoPereciveis" class="productimg">
+    <h3>Achocolatado Em Po 550g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/brahma.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Brahma 250ml</h3>
+  <div class="Pcontainer" data-kg="1kg" data-embalagem="saco">
+    <img src="/imagens/arroz.png" alt="NaoPereciveis" class="productimg">
+    <h3>Arroz Branco Camil 1kg</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/itaipava.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Itaipava 300ml</h3>
+  <div class="Pcontainer" data-kg="1kg" data-embalagem="saco">
+    <img src="/imagens/feijao.png" alt="NaoPereciveis" class="productimg">
+    <h3>Feijao Carioca Kicaldo 1kg</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/budwaiser.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Budwaiser 250ml</h3>
+  <div class="Pcontainer" data-kg="500g" data-embalagem="saco">
+    <img src="/imagens/cafe.png" alt="NaoPereciveis" class="productimg">
+    <h3>Cafe Pilao A Vacuo 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/Skol.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Skol 250ml                    .</h3>
+  <div class="Pcontainer" data-kg="1l" data-embalagem="caixa">
+    <img src="/imagens/leite.png" alt="NaoPereciveis" class="productimg">
+    <h3>Leite UTH Integral Italac 1L</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/skollata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Skol 250ml</h3>
+  <div class="Pcontainer" data-kg="500g" data-embalagem="saco">
+    <img src="/imagens/macarrao.png" alt="NaoPereciveis" class="productimg">
+    <h3>Macarrao Todeschini 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/HeinekenLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Heineken 250ml</h3>
+  <div class="Pcontainer" data-kg="200g" data-embalagem="vidro">
+    <img src="/imagens/azeitona.png" alt="NaoPereciveis" class="productimg">
+    <h3>Azeitona Vale Fertil Com Queijo 200ml</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/ItaipavaLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Itaipava 250ml</h3>
+  <div class="Pcontainer" data-kg="300g" data-embalagem="vidro">
+    <img src="/imagens/palmito.png" alt="NaoPereciveis" class="productimg">
+    <h3>Conserva Palmito Alinhutri 300g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/BudwaiserLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Budwaiser 250ml</h3>
+  <div class="Pcontainer" data-kg="397g" data-embalagem="plastico">
+    <img src="/imagens/ketchup.png" alt="NaoPereciveis" class="productimg">
+    <h3>Ketchup Tomate Heinz 397g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/brahmalata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Brahma 250ml</h3>
+  <div class="Pcontainer" data-kg="300ml" data-embalagem="plastico">
+    <img src="/imagens/oleo.png" alt="NaoPereciveis" class="productimg">
+    <h3>Oleo De Soja Liza 300ml</h3>
     <button class="add-button">Adicionar</button>
   </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+          const buttons = document.querySelectorAll(".add-button");
+
+          buttons.forEach(button => {
+              button.addEventListener("click", (event) => {
+                  const productContainer = event.target.parentElement;
+                  const product = {
+                      name: productContainer.querySelector("h3").innerText,
+                      image: productContainer.querySelector("img").src
+                  };
+
+                  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                  cart.push(product);
+                  localStorage.setItem("cart", JSON.stringify(cart));
+
+                  alert(`${product.name} foi adicionado ao carrinho!`);
+              });
+          });
+      });
+
+  function FiltrarProdutos() {
+    const filtroKG = document.getElementById('filtro-kg').value;
+    const filtroEmbalagemTipo = document.getElementById('filtro-embalagem').value;
+
+    document.querySelectorAll('.Pcontainer').forEach(produto => {
+        const KG = produto.dataset.kg;
+        const EmbalagemTipo = produto.dataset.embalagem;
+
+        const Mostrar = 
+            (filtroKG === 'todos' || filtroKG === KG) &&
+            (filtroEmbalagemTipo === 'todos' || filtroEmbalagemTipo === EmbalagemTipo);
+
+        produto.style.display = Mostrar ? 'block' : 'none';
+    });
+}
+</script>
 
 </body>
 </html>

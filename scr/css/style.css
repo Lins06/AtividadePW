@@ -5,11 +5,11 @@
   }
 
   @font-face {
-  font-family: 'Adega Serif';
-  src: url('fonts/AdegaSerif-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+    font-family: 'Adega Serif';
+    src: url('fonts/AdegaSerif-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
   a {
     text-decoration: none;
@@ -33,7 +33,7 @@
     background-color: #1e1c2e;
     color: #b6b6b6;
     margin-top: 15px; 
-}
+  }
 
  .senha input{
     border-radius: 15px;
@@ -44,7 +44,7 @@
     background-color: #1e1c2e;
     color: #b6b6b6;
     margin-top: 15px;
-}
+  }
 
 .nome input{
   border-radius: 15px;

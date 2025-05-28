@@ -19,94 +19,145 @@
           </nav>
     </header>
 
-    <h1>ADEGA</h1>
+    <h1>LIMPEZA</h1>
 
     <div class="FiltersContainer">
-    <div class="filter-box">
-      <label for="filtro">Quantidade MLs</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">250ml</option>
-        <option value="categoria2">300ml</option>
-      </select>
-    </div>
-
-    <div class="filter-box">
-      <label for="filtro">Marca</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">Skol</option>
-        <option value="categoria2">Heineken</option>
-        <option value="categoria2">Skol</option>
-        <option value="categoria2">Itaipava</option>
-        <option value="categoria2">Budwaiser</option>
-      </select>
-    </div>
-
-    <div class="filter-box">
-      <label for="filtro">Tipo Embalagem</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">Long Neck</option>
-        <option value="categoria2">Lata</option>
-      </select>
-    </div>
+  <div class="filter-box">
+    <label for="filtro-ml">Quantidade Lt/Kgs/m</label>
+    <select id="filtro-ml" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="200ml">200ml</option>
+      <option value="2l">2L</option>
+      <option value="180g">180g</option>
+      <option value="800g">800g</option>
+      <option value="1kg">1kg</option>
+      <option value="50m">50m</option>
+    </select>
   </div>
+
+  <div class="filter-box">
+    <label for="filtro-marca">Marca</label>
+    <select id="filtro-marca" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="ype">Ype</option>
+      <option value="colgate">Colgate</option>
+      <option value="brilhante">Brilhante</option>
+      <option value="omo">OMO</option>
+      <option value="sanol">Sanol</option>
+    </select>
+  </div>
+
+  <div class="filter-box">
+    <label for="filtro-embalagem">Tipo Embalagem</label>
+    <select id="filtro-embalagem" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="frasco">Frasco com tampa</option>
+      <option value="caixa">Caixas de papelao</option>
+      <option value="saco">Saco plástico</option>
+      <option value="plastico">Embalagem plastica</option>
+    </select>
+  </div>
+</div>
 
   
 
     <div class="containerprodutos">
-  <div class="Pcontainer">
-    <img src="/imagens/Cerveja-Heineken-250ml.jpg" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Heineken 250ml</h3>
+  <div class="Pcontainer" data-marca="ype" data-ml="200ml" data-embalagem="frasco">
+    <img src="/imagens/detergente.png" alt="limpeza" class="productimg">
+    <h3>Detergente Ype Neutro 200ml</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/brahma.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Brahma 250ml</h3>
+  <div class="Pcontainer" data-marca="colgate" data-ml="180g" data-embalagem="caixa">
+    <img src="/imagens/Colgate.png" alt="limpeza" class="productimg">
+    <h3>Pasta De Dente Colgate 180g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/itaipava.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Itaipava 300ml</h3>
+  <div class="Pcontainer" data-marca="ype" data-ml="200ml" data-embalagem="frasco">
+    <img src="/imagens/detergenteMaca.png" alt="limpeza" class="productimg">
+    <h3>Detergente Ype Maça 200ml</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/budwaiser.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Budwaiser 250ml</h3>
+  <div class="Pcontainer" data-marca="ype" data-ml="1kg" data-embalagem="plastico">
+    <img src="/imagens/sabaoEmBarra.png" alt="limpeza" class="productimg">
+    <h3>Sabao Em barra Ype 1kg</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/Skol.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Skol 250ml                    .</h3>
+  <div class="Pcontainer" data-marca="brilhante" data-ml="800g" data-embalagem="saco">
+    <img src="/imagens/sabaoEmPo.png" alt="limpeza" class="productimg">
+    <h3>Sabao Em Po Brilhante 800g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/skollata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Skol 250ml</h3>
+  <div class="Pcontainer" data-marca="omo" data-ml="1kg" data-embalagem="caixa">
+    <img src="/imagens/sabaoEmPoOmo.png" alt="limpeza" class="productimg">
+    <h3>Sabao Em Po OMO Perfumado 1kg</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/HeinekenLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Heineken 250ml</h3>
+  <div class="Pcontainer" data-marca="colgate" data-ml="null" data-embalagem="null">
+    <img src="/imagens/pastaDeDente.png" alt="limpeza" class="productimg">
+    <h3>Escova De Dente Colgate </h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/ItaipavaLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Itaipava 250ml</h3>
+  <div class="Pcontainer" data-marca="sanol" data-ml="2l" data-embalagem="frasco">
+    <img src="/imagens/desinfetante.png" alt="limpeza" class="productimg">
+    <h3>Desinfetante Sanol Florar 2L</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/BudwaiserLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Budwaiser 250ml</h3>
+  <div class="Pcontainer" data-marca="colgate" data-ml="50m" data-embalagem="plastico">
+    <img src="/imagens/fioDental.png" alt="limpeza" class="productimg">
+    <h3>Fio Dental Colgate 50m</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/brahmalata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Brahma 250ml</h3>
+  <div class="Pcontainer" data-marca="ype" data-ml="2l" data-embalagem="frasco">
+    <img src="/imagens/desinfetanteYpe.png" alt="limpeza" class="productimg">
+    <h3>Desinfetante Ype Lavanda 2L</h3>
     <button class="add-button">Adicionar</button>
   </div>
 </div>
+
+<script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const buttons = document.querySelectorAll(".add-button");
+
+          buttons.forEach(button => {
+              button.addEventListener("click", (event) => {
+                  const productContainer = event.target.parentElement;
+                  const product = {
+                      name: productContainer.querySelector("h3").innerText,
+                      image: productContainer.querySelector("img").src
+                  };
+
+                  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                  cart.push(product);
+                  localStorage.setItem("cart", JSON.stringify(cart));
+
+                  alert(`${product.name} foi adicionado ao carrinho!`);
+              });
+          });
+      });
+
+      
+
+ function FiltrarProdutos() {
+    const filtroML = document.getElementById('filtro-ml').value;
+    const filtroMarca = document.getElementById('filtro-marca').value;
+    const filtroEmbalagemTipo = document.getElementById('filtro-embalagem').value;
+
+    document.querySelectorAll('.Pcontainer').forEach(produto => {
+        const ML = produto.dataset.ml;
+        const Marca = produto.dataset.marca;
+        const EmbalagemTipo = produto.dataset.embalagem;
+
+        const Mostrar = 
+            (filtroML === 'todos' || filtroML === ML) &&
+            (filtroMarca === 'todos' || filtroMarca === Marca) &&
+            (filtroEmbalagemTipo === 'todos' || filtroEmbalagemTipo === EmbalagemTipo);
+
+        produto.style.display = Mostrar ? 'block' : 'none';
+    });
+}
+
+      
+    </script>
 
 </body>
 </html>
