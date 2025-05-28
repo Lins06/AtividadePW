@@ -9,14 +9,25 @@
 <body>
     <header class="header">
         <nav>
-            <a href="/" class="logo">SuperMarket Online</a>
-            <div class="nav-links">
-              <a href="/AtividadePW/scr/html/login.html">Login</a>
-              <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
-              <a href="#">Categorias</a>
-              <a href="/AtividadePW/scr/html/CarrinhoCompras.html">Carrinho</a>
+          <a href="/" class="logo">SuperMarket Online</a>
+          <div class="nav-links">
+            <a href="/AtividadePW/scr/html/login.html">Login</a>
+            <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
+
+            <div class="dropdown">
+              <a href="#" class="dropbtn">Categorias</a>
+              <div class="dropdown-content">
+                <a href="/AtividadePW/scr/html/CatAdega.html">Adega</a>
+                <a href="/AtividadePW/scr/html/CatCarnes.html">Carnes</a>
+                <a href="/AtividadePW/scr/html/CatHortf.html">Hortifruti</a>
+                <a href="/AtividadePW/scr/html/CatLimpeza.html">Limpeza</a>
+                <a href="/AtividadePW/scr/html/CatNaoP.html">Não Perecíveis</a>
+                <a href="/AtividadePW/scr/html/CatPadaria.html">Padaria</a>
+              </div>
             </div>
-          </nav>
+            <a href="/AtividadePW/scr/html/CarrinhoCompras.html">Carrinho</a>
+          </div>
+        </nav>
     </header>
 
     <h1>AÇOUGUE</h1>
@@ -47,9 +58,9 @@
     <label for="filtro-embalagem">Formato Apresentação</label>
     <select id="filtro-embalagem" onchange="FiltrarProdutos()">
       <option value="todos">Todos</option>
-      <option value="cortado">Unidade</option>
-      <option value="inteiro">Pacote</option>
-      <option value="moido">Duzia</option>
+      <option value="cortado">Cortado</option>
+      <option value="inteiro">Inteiro</option>
+      <option value="moido">Moido</option>
     </select>
   </div>
 </div>
@@ -58,53 +69,53 @@
 
     <div class="containerprodutos">
   <div class="Pcontainer" data-marca="friboi" data-kg="800g" data-embalagem="cortado">
-    <img src="/imagens/alcatra.png" alt="teste" class="productimg">
+    <img src="/AtividadePW/imagens/alcatra.png" alt="Bife Alcatra Friboi" class="productimg">
     <h3>Bife carne alcatra Friboi 800g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="swift" data-kg="500g" data-embalagem="cortado">
-    <img src="/imagens/asa de frango.png" alt="teste" class="productimg">
+    <img src="/AtividadePW/imagens/asa de frango.png" alt="Asa de Frango Swift" class="productimg">
     <h3>Asa de frango swift 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="bassi" data-kg="500g" data-embalagem="moido">
-    <img src="/imagens/carne moida bovina.png" alt="teste" class="productimg">
+    <img src="/AtividadePW/imagens/carne moida bovina.png" alt="Carne Moída Bassi" class="productimg">
     <h3>Carne moida bovina Bassi 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="friboi" data-kg="600g" data-embalagem="cortado">
-    <img src="/imagens/contra file.png" alt="teste" class="productimg">
+    <img src="/AtividadePW/imagens/contra file.png" alt="Contra Filé Friboi" class="productimg">
     <h3>Bife de contra file Friboi 600g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="swift" data-kg="500g" data-embalagem="cortado">
-    <img src="/imagens/coxa de frango.png" alt="teste" class="productimg">
+    <img src="/AtividadePW/imagens/coxa de frango.png" alt="Coxa de Frango Swift" class="productimg">
     <h3>Coxa de frango swift 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="swift" data-kg="600g" data-embalagem="cortado">
-    <img src="/imagens/fraldinha.png" alt="teste" class="productimg">
+    <img src="/AtividadePW/imagens/fraldinha.png" alt="Fraldinha Swift" class="productimg">
     <h3>Fraldinha bronze swift 600g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="sadia" data-kg="1kg" data-embalagem="inteiro">
-    <img src="/imagens/frango inteiro.png" alt="teste" class="productimg">
-    <h3>Frango inteiro congelado Sadia 1kg</h3>
+    <img src="/AtividadePW/imagens/frango inteiro.png" alt="Frango Inteiro Sadia" class="productimg">
+    <h3>Frango inteiro Sadia 1kg</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="swift" data-kg="500g" data-embalagem="cortado">
-    <img src="/imagens/patinho bovino.png" alt="teste" class="productimg">
+    <img src="/AtividadePW/imagens/patinho bovino.png" alt="Patinho Bovino Swift" class="productimg">
     <h3>Patinho bovino swift 500g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="sadia" data-kg="800g" data-embalagem="cortado">
-    <img src="/imagens/peito de frango.png" alt="teste" class="productimg">
+    <img src="/AtividadePW/imagens/peito de frango.png" alt="Peito de Frango Sadia" class="productimg">
     <h3>Peito de frango Sadia 800g</h3>
     <button class="add-button">Adicionar</button>
   </div>
   <div class="Pcontainer" data-marca="bassi" data-kg="800g" data-embalagem="cortado">
-    <img src="/imagens/picanha.png" alt="teste" class="productimg">
-    <h3>Picanha bovina congelada Bassi 800g </h3>
+    <img src="/AtividadePW/imagens/picanha.png" alt="Picanha Bassi" class="productimg">
+    <h3>Picanha bovina congelada Bassi 800g</h3>
     <button class="add-button">Adicionar</button>
   </div>
 </div>
