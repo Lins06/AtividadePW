@@ -126,16 +126,17 @@ nav {
 .banner {
   display: block;
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 00px;
 }
+
 
 .banner-limpeza {
   width: 22%;
   height: auto;
   position: absolute;
-  top: 100%;
+  top: 112%;
   left: 24%;
   transform: translate(-50%, -50%);
 }
@@ -144,7 +145,7 @@ nav {
   width: 22%;
   height: auto;
   position: absolute;
-  top: 100%;
+  top: 112%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -153,7 +154,7 @@ nav {
   width: 22%;
   height: auto;
   position: absolute;
-  top: 100%;
+  top: 112%;
   left: 75.8%;
   transform: translate(-50%, -50%);
 }
@@ -162,7 +163,7 @@ nav {
   width: 22%;
   height: auto;
   position: absolute;
-  top: 148%;
+  top: 160%;
   left: 24%;
   transform: translate(-50%, -50%);
 }
@@ -171,7 +172,7 @@ nav {
   width: 22%;
   height: auto;
   position: absolute;
-  top: 148%;
+  top: 160%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -180,7 +181,7 @@ nav {
   width: 22%;
   height: auto;
   position: absolute;
-  top: 148%;
+  top: 160%;
   left: 75.8%;
   transform: translate(-50%, -50%);
 }

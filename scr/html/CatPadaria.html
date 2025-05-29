@@ -9,7 +9,7 @@
 <body>
     <header class="header">
         <nav>
-          <a href="/" class="logo">SuperMarket Online</a>
+          <a href="" class="logo">Carrinho Online</a>
           <div class="nav-links">
             <a href="/AtividadePW/scr/html/login.html">Login</a>
             <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
@@ -30,94 +30,127 @@
         </nav>
     </header>
 
-    <h1>ADEGA</h1>
+    <h1>Padaria</h1>
 
     <div class="FiltersContainer">
-    <div class="filter-box">
-      <label for="filtro">Quantidade MLs</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">250ml</option>
-        <option value="categoria2">300ml</option>
-      </select>
-    </div>
-
-    <div class="filter-box">
-      <label for="filtro">Marca</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">Skol</option>
-        <option value="categoria2">Heineken</option>
-        <option value="categoria2">Skol</option>
-        <option value="categoria2">Itaipava</option>
-        <option value="categoria2">Budwaiser</option>
-      </select>
-    </div>
-
-    <div class="filter-box">
-      <label for="filtro">Tipo Embalagem</label>
-      <select name="filtro" id="filtro" onchange="filtrar(this.value)">
-        <option value="tudo">Todos</option>
-        <option value="categoria1">Long Neck</option>
-        <option value="categoria2">Lata</option>
-      </select>
-    </div>
+  <div class="filter-box">
+    <label for="filtro-kg">Quantidade Kgs</label>
+    <select id="filtro-kg" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="50g">50g</option>
+      <option value="100g">100g</option>
+      <option value="160g">160g</option>
+      <option value="200g">200g</option>
+      <option value="300g">300g</option>
+      <option value="600g">600g</option>
+    </select>
   </div>
+
+  <div class="filter-box">
+    <label for="filtro-embalagem">Categoria</label>
+    <select id="filtro-embalagem" onchange="FiltrarProdutos()">
+      <option value="todos">Todos</option>
+      <option value="paes">Paes</option>
+      <option value="salgados">Salgados</option>
+      <option value="bolos">Bolos</option>
+      <option value="doces">Doces</option>
+      <option value="frios">Frios E Laticinios</option>
+    </select>
+  </div>
+</div>
 
   
 
     <div class="containerprodutos">
-  <div class="Pcontainer">
-    <img src="/imagens/Cerveja-Heineken-250ml.jpg" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Heineken 250ml</h3>
+  <div class="Pcontainer" data-kg="160g" data-embalagem="paes">
+    <img src="/AtividadePW/imagens/baguetecalabresa.png" alt="teste" class="productimg">
+    <h3>Baguete De Calabresa 160g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/brahma.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Brahma 250ml</h3>
+  <div class="Pcontainer" data-kg="600g" data-embalagem="bolos">
+    <img src="/AtividadePW/imagens/bolochocolate.png" alt="teste" class="productimg">
+    <h3>Bolo De Chocolate 600g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/itaipava.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Itaipava 300ml</h3>
+  <div class="Pcontainer" data-kg="100g" data-embalagem="paes">
+    <img src="/AtividadePW/imagens/paofrances.png" alt="teste" class="productimg">
+    <h3>Pao Frances Crocante 100g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/budwaiser.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Budwaiser 250ml</h3>
+  <div class="Pcontainer" data-kg="300g" data-embalagem="frios">
+    <img src="/AtividadePW/imagens/mussarela.png" alt="teste" class="productimg">
+    <h3>Queijo Mussarela Pacote 300g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/Skol.png" alt="teste" class="productimg">
-    <h3>Cerveja Long Neck Skol 250ml                    .</h3>
+  <div class="Pcontainer" data-kg="100g" data-embalagem="doces">
+    <img src="/AtividadePW/imagens/sonhocreme.png" alt="teste" class="productimg">
+    <h3>Sonho De Creme Delix 100g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/skollata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Skol 250ml</h3>
+  <div class="Pcontainer" data-kg="200g" data-embalagem="doces">
+    <img src="/AtividadePW/imagens/pudim.png" alt="teste" class="productimg">
+    <h3>Pudim De Leite Condensado 200g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/HeinekenLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Heineken 250ml</h3>
+  <div class="Pcontainer" data-kg="200g" data-embalagem="frios">
+    <img src="/AtividadePW/imagens/peitodeperu.png" alt="teste" class="productimg">
+    <h3>Peito De Peru Sadia Defumado 200g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/ItaipavaLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Itaipava 250ml</h3>
+  <div class="Pcontainer" data-kg="50g" data-embalagem="salgados">
+    <img src="/AtividadePW/imagens/croissant.png" alt="teste" class="productimg">
+    <h3>Croissant De Calabresa 50g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/BudwaiserLata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Budwaiser 250ml</h3>
+  <div class="Pcontainer" data-kg="600g" data-embalagem="bolos">
+    <img src="/AtividadePW/imagens/bolocenoura.png" alt="teste" class="productimg">
+    <h3>Bolo De Cenoura 600g</h3>
     <button class="add-button">Adicionar</button>
   </div>
-  <div class="Pcontainer">
-    <img src="/imagens/brahmalata.png" alt="teste" class="productimg">
-    <h3>Cerveja Lata Brahma 250ml</h3>
+  <div class="Pcontainer" data-kg="100g" data-embalagem="salgados">
+    <img src="/AtividadePW/imagens/coxinha.png" alt="teste" class="productimg">
+    <h3>Coxinha De Frango 100g</h3>
     <button class="add-button">Adicionar</button>
   </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+          const buttons = document.querySelectorAll(".add-button");
+
+          buttons.forEach(button => {
+              button.addEventListener("click", (event) => {
+                  const productContainer = event.target.parentElement;
+                  const product = {
+                      name: productContainer.querySelector("h3").innerText,
+                      image: productContainer.querySelector("img").src
+                  };
+
+                  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                  cart.push(product);
+                  localStorage.setItem("cart", JSON.stringify(cart));
+
+                  alert(`${product.name} foi adicionado ao carrinho!`);
+              });
+          });
+      });
+
+  function FiltrarProdutos() {
+    const filtroKG = document.getElementById('filtro-kg').value;
+    const filtroEmbalagemTipo = document.getElementById('filtro-embalagem').value;
+
+    document.querySelectorAll('.Pcontainer').forEach(produto => {
+        const KG = produto.dataset.kg;
+        const EmbalagemTipo = produto.dataset.embalagem;
+
+        const Mostrar = 
+            (filtroKG === 'todos' || filtroKG === KG) &&
+            (filtroEmbalagemTipo === 'todos' || filtroEmbalagemTipo === EmbalagemTipo);
+
+        produto.style.display = Mostrar ? 'block' : 'none';
+    });
+}
+</script>
 
 </body>
 </html>
