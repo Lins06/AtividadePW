@@ -11,7 +11,7 @@
         <nav>
           <a href="" class="logo">Carrinho Online</a>
           <div class="nav-links">
-            <a href="/AtividadePW/scr/html/login.html">Login</a>
+            <a href="/AtividadePW/scr/html/login.html" id="link-login">Login</a>
             <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
 
             <div class="dropdown">
@@ -115,7 +115,7 @@
   </div>
   <div class="Pcontainer" data-marca="bassi" data-kg="800g" data-embalagem="cortado">
     <img src="/AtividadePW/imagens/picanha.png" alt="Picanha Bassi" class="productimg">
-    <h3>Picanha bovina congelada Bassi 800g</h3>
+    <h3>Picanha bovina Bassi 800g</h3>
     <button class="add-button">Adicionar</button>
   </div>
 </div>
@@ -159,6 +159,39 @@ document.addEventListener("DOMContentLoaded", () => {
         produto.style.display = Mostrar ? 'block' : 'none';
     });
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const linkLogin = document.getElementById('link-login');
+  const navLinks = document.querySelector('.nav-links');
+
+  const estaLogado = localStorage.getItem('usuarioLogado') === 'true';
+  const nomeUsuario = localStorage.getItem('nomeUsuario');
+
+  if (estaLogado) {
+    if (linkLogin) {
+      linkLogin.style.display = 'none';
+    }
+
+    // Adiciona saudação e botão sair
+    const saudacao = document.createElement('span');
+    saudacao.style.marginRight = '10px';
+
+    const botaoSair = document.createElement('a');
+    botaoSair.href = "#";
+    botaoSair.textContent = "Logout";
+    botaoSair.style.cursor = 'pointer';
+    botaoSair.className = 'nav-link';
+
+    botaoSair.addEventListener('click', () => {
+      localStorage.removeItem('usuarioLogado');
+      localStorage.removeItem('nomeUsuario');
+      window.location.reload(); 
+    });
+
+    navLinks.appendChild(saudacao);
+    navLinks.appendChild(botaoSair);
+  }
+});
 </script>
 
 </body>

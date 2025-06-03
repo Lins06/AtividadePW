@@ -11,7 +11,7 @@
       <nav>
           <a href="" class="logo">Carrinho Online</a>
           <div class="nav-links">
-            <a href="/AtividadePW/scr/html/login.html">Login</a>
+            <a href="/AtividadePW/scr/html/login.html" id="link-login">Login</a>
             <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
 
             <div class="dropdown">
@@ -33,34 +33,6 @@
      <div class="cart-container">
     <h2 class="cart-title">Itens no Carrinho</h2>
     <ul class="cart-list"></ul>
-  </div>
-
-  <div class="container">
-    <h2>Informações De Envio</h2>
-    <label for="cep">CEP:</label>
-    <input type="text" id="cep" placeholder="Digite o CEP (ex: 01001000)" maxlength="8">
-    
-    <label for="rua">Rua:</label>
-    <input type="text" id="rua" readonly>
-
-    <label for="bairro">Bairro:</label>
-    <input type="text" id="bairro" readonly>
-
-    <label for="cidade">Cidade:</label>
-    <input type="text" id="cidade" readonly>
-
-    <label for="estado">Estado:</label>
-    <input type="text" id="estado" readonly>
-
-    <div class="botaofrete">
-        <input type="submit" id="botaofrete" value="Calcular Frete">
-    </div>
-
-    <div class="weather" id="weather">
-      <strong>Clima:</strong>
-      <p id="descricao">Digite o CEP para ver o clima.</p>
-      <p id="temperatura"></p>
-    </div>
   </div>
 
 <script>
@@ -144,6 +116,39 @@ async function buscarClima(cidade) {
     console.error(error);
   }
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const linkLogin = document.getElementById('link-login');
+  const navLinks = document.querySelector('.nav-links');
+
+  const estaLogado = localStorage.getItem('usuarioLogado') === 'true';
+  const nomeUsuario = localStorage.getItem('nomeUsuario');
+
+  if (estaLogado) {
+    if (linkLogin) {
+      linkLogin.style.display = 'none';
+    }
+
+    // Adiciona saudação e botão sair
+    const saudacao = document.createElement('span');
+    saudacao.style.marginRight = '10px';
+
+    const botaoSair = document.createElement('a');
+    botaoSair.href = "#";
+    botaoSair.textContent = "Logout";
+    botaoSair.style.cursor = 'pointer';
+    botaoSair.className = 'nav-link';
+
+    botaoSair.addEventListener('click', () => {
+      localStorage.removeItem('usuarioLogado');
+      localStorage.removeItem('nomeUsuario');
+      window.location.reload(); 
+    });
+
+    navLinks.appendChild(saudacao);
+    navLinks.appendChild(botaoSair);
+  }
+});
 </script>
 
 </body>

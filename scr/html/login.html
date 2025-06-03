@@ -33,7 +33,7 @@
 
     <div id="login">
 
-        <div class="caixa">
+        <form id="formLogin" class="caixa">
 
             <h1>LOGIN</h1>
 
@@ -49,10 +49,37 @@
                 <p>Ainda nao tem uma conta? <a href="/AtividadePW/scr/html/cadastro.html">Crie uma</a></p>
                 <input type="submit" value="Entrar">
             </div>
-
-        </div>
+      </form>
     </div>
 
-    <script src="/AtividadePW/scr/JavaScript/Script.js"></script>
+    <script>
+
+         const formLogin = document.getElementById('formLogin');
+        const emailInput = document.getElementById('email');
+        const senhaInput = document.getElementById('senha');
+
+        formLogin.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = emailInput.value.trim();
+            const senha = senhaInput.value;
+
+            const usuarioSalvo = localStorage.getItem('usuarioCadastro');
+
+            if (!usuarioSalvo) {
+                alert('Login ou senha incorretos');
+                return;
+            }
+
+            const usuario = JSON.parse(usuarioSalvo);
+
+            alert('Login realizado com sucesso!');
+            window.location.href = '/AtividadePW/scr/html/TelaInicial.html';
+            });
+
+            localStorage.setItem('usuarioLogado', 'true');
+            localStorage.setItem('nomeUsuario', usuario.nome);
+
+    </script>
 </body>
 </html>
