@@ -9,83 +9,129 @@
 <body>
     <header class="header">
         <nav>
-          <a href="" class="logo">Carrinho Online</a>
-          <div class="nav-links">
-            <a href="/AtividadePW/scr/html/login.html" id="link-login">Login </a>
-            <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
+            <a href="" class="logo">Carrinho Online</a>
+            <div class="nav-links">
+                <a href="/AtividadePW/scr/html/login.html" id="link-login">Login </a>
+                <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
+                <span id="clima-nav" style="font-weight: bold; color: white; margin-left: 15px;"></span>
 
-            <div class="dropdown">
-              <a href="#" class="dropbtn">Categorias</a>
-              <div class="dropdown-content">
-                <a href="/AtividadePW/scr/html/CatAdega.html">Adega</a>
-                <a href="/AtividadePW/scr/html/CatCarnes.html">Carnes</a>
-                <a href="/AtividadePW/scr/html/CatHortf.html">Hortifruti</a>
-                <a href="/AtividadePW/scr/html/CatLimpeza.html">Limpeza</a>
-                <a href="/AtividadePW/scr/html/CatNaoP.html">Não Perecíveis</a>
-                <a href="/AtividadePW/scr/html/CatPadaria.html">Padaria</a>
-              </div>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Categorias</a>
+                    <div class="dropdown-content">
+                        <a href="/AtividadePW/scr/html/CatAdega.html">Adega</a>
+                        <a href="/AtividadePW/scr/html/CatCarnes.html">Carnes</a>
+                        <a href="/AtividadePW/scr/html/CatHortf.html">Hortifruti</a>
+                        <a href="/AtividadePW/scr/html/CatLimpeza.html">Limpeza</a>
+                        <a href="/AtividadePW/scr/html/CatNaoP.html">Não Perecíveis</a>
+                        <a href="/AtividadePW/scr/html/CatPadaria.html">Padaria</a>
+                    </div>
+                </div>
+                <a href="/AtividadePW/scr/html/CarrinhoCompras.html">Carrinho</a>
             </div>
-            <a href="/AtividadePW/scr/html/CarrinhoCompras.html">Carrinho</a>
-          </div>
         </nav>
     </header>
 
-
-        <img src="/AtividadePW/imagens/f2_novo.png" alt="Descricao da imagem" class="banner">
-        <img src="/AtividadePW/imagens/CATEGORIAS.jpg" alt="banner-categorias" class="banner-categorias">
-      <a href="/AtividadePW/scr/html/CatLimpeza.html">
+    <img src="/AtividadePW/imagens/fundo.jpg" alt="Descricao da imagem" class="banner">
+    <img src="/AtividadePW/imagens/CATEGORIAS.jpg" alt="banner-categorias" class="banner-categorias">
+    <a href="/AtividadePW/scr/html/CatLimpeza.html">
         <img src="/AtividadePW/imagens/LIMPEZA.png" alt="Produtos Limpeza" class="banner-limpeza">
-      </a>
-      <a href="/AtividadePW/scr/html/CatCarnes.html">
+    </a>
+    <a href="/AtividadePW/scr/html/CatCarnes.html">
         <img src="/AtividadePW/imagens/CARNES.png" alt="Carnes" class="banner-carnes">
-      </a>
-      <a href="/AtividadePW/scr/html/CatHortf.html">
+    </a>
+    <a href="/AtividadePW/scr/html/CatHortf.html">
         <img src="/AtividadePW/imagens/HORTIFRUTI.png" alt="Frutas" class="banner-frutas">
-      </a>
-      <a href="/AtividadePW/scr/html/CatNaoP.html">
+    </a>
+    <a href="/AtividadePW/scr/html/CatNaoP.html">
         <img src="/AtividadePW/imagens/NAO PERECIVEIS.png" alt="Alimentos" class="banner-alimentos">
-      </a>
-      <a href="/AtividadePW/scr/html/CatAdega.html">
+    </a>
+    <a href="/AtividadePW/scr/html/CatAdega.html">
         <img src="/AtividadePW/imagens/ADEGA (1).png" alt="Bebidas" class="banner-bebidas">
-      </a>
-      <a href="/AtividadePW/scr/html/CatPadaria.html">
+    </a>
+    <a href="/AtividadePW/scr/html/CatPadaria.html">
         <img src="/AtividadePW/imagens/PADARIA.png" alt="Pao" class="banner-pao">
-      </a>
+    </a>
 
-      <script>
+    <script>
+        function getIconeClima(descricao) {
+            const desc = descricao.toLowerCase();
+            if (desc.includes('sunny') || desc.includes('clear')) return '☀️';
+            if (desc.includes('partly cloudy')) return '⛅️';
+            if (desc.includes('cloudy')) return '☁️';
+            if (desc.includes('rain') || desc.includes('drizzle')) return '🌧️';
+            if (desc.includes('thunder') || desc.includes('storm')) return '⛈️';
+            if (desc.includes('snow')) return '❄️';
+            if (desc.includes('mist') || desc.includes('fog')) return '🌫️';
+            return '🌍';
+        }
+
+        async function mostrarClimaPeloCep(cep) {
+            if (!cep) return;
+            try {
+                const responseCep = await fetch(`https://brasilapi.com.br/api/cep/v1/${cep}`);
+                if (!responseCep.ok) return;
+                const dadosCep = await responseCep.json();
+                const cidade = dadosCep.city;
+
+                if (!cidade) return;
+
+                const responseClima = await fetch(`https://wttr.in/${encodeURIComponent(cidade)}?format=j1`);
+                if (!responseClima.ok) return;
+                const dadosClima = await responseClima.json();
+                
+                const temperatura = dadosClima.current_condition[0].temp_C;
+                const descricaoClima = dadosClima.current_condition[0].weatherDesc[0].value;
+                const icone = getIconeClima(descricaoClima);
+                const textoFinal = `${icone} ${temperatura}°C em ${cidade}`;
+
+                document.getElementById('clima-nav').innerHTML = textoFinal;
+            } catch (error) {
+                console.error("Erro ao buscar clima:", error);
+                document.getElementById('clima-nav').innerHTML = "";
+            }
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
-  const linkLogin = document.getElementById('link-login');
-  const navLinks = document.querySelector('.nav-links');
+            const linkLogin = document.getElementById('link-login');
+            const navLinks = document.querySelector('.nav-links');
+            const estaLogado = localStorage.getItem('usuarioLogado') === 'true';
+            const nomeUsuario = localStorage.getItem('nomeUsuario');
 
-  const estaLogado = localStorage.getItem('usuarioLogado') === 'true';
-  const nomeUsuario = localStorage.getItem('nomeUsuario');
+            if (estaLogado) {
+              
+                const usuarioSalvo = localStorage.getItem('usuarioCadastro');
+                if (usuarioSalvo) {
+                    const usuario = JSON.parse(usuarioSalvo);
+                    if (usuario.cep) {
+                        mostrarClimaPeloCep(usuario.cep);
+                    }
+                }
 
-  if (estaLogado) {
-    if (linkLogin) {
-      linkLogin.style.display = 'none';
-    }
+                if (linkLogin) {
+                    linkLogin.style.display = 'none';
+                }
 
-    // Adiciona saudação e botão sair
-    const saudacao = document.createElement('span');
-    saudacao.style.marginRight = '10px';
+                const saudacao = document.createElement('span');
+                saudacao.textContent = `Olá, ${nomeUsuario || 'usuário'}`;
+                saudacao.style.marginRight = '10px';
+                saudacao.style.color = 'white';
 
-    const botaoSair = document.createElement('a');
-    botaoSair.href = "#";
-    botaoSair.textContent = "Logout";
-    botaoSair.style.cursor = 'pointer';
-    botaoSair.className = 'nav-link';
+                const botaoSair = document.createElement('a');
+                botaoSair.href = "#";
+                botaoSair.textContent = "Logout";
+                botaoSair.style.cursor = 'pointer';
+                botaoSair.className = 'nav-link';
 
-    botaoSair.addEventListener('click', () => {
-      localStorage.removeItem('usuarioLogado');
-      localStorage.removeItem('nomeUsuario');
-      window.location.reload(); 
-    });
+                botaoSair.addEventListener('click', () => {
+                    localStorage.removeItem('usuarioLogado');
+                    localStorage.removeItem('nomeUsuario');
+                    window.location.reload(); 
+                });
 
-    navLinks.appendChild(saudacao);
-    navLinks.appendChild(botaoSair);
-  }
-});
-      </script>
-
+                navLinks.insertBefore(saudacao, linkLogin.nextSibling);
+                navLinks.insertBefore(botaoSair, saudacao.nextSibling);
+            }
+        });
+    </script>
 </body>
 </html>

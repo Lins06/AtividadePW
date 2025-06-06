@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+    <title>Tela de Cadastro</title>
     <link rel="stylesheet" href="/AtividadePW/scr/css/style.css">
 </head>
 
@@ -11,24 +11,24 @@
 
     <header class="header">
         <nav>
-          <a href="" class="logo">Carrinho Online</a>
-          <div class="nav-links">
-            <a href="/AtividadePW/scr/html/login.html">Login</a>
-            <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
+            <a href="" class="logo">Carrinho Online</a>
+            <div class="nav-links">
+                <a href="/AtividadePW/scr/html/login.html">Login</a>
+                <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
 
-            <div class="dropdown">
-              <a href="" class="dropbtn">Categorias</a>
-              <div class="dropdown-content">
-                <a href="/AtividadePW/scr/html/CatAdega.html">Adega</a>
-                <a href="/AtividadePW/scr/html/CatCarnes.html">Carnes</a>
-                <a href="/AtividadePW/scr/html/CatHortf.html">Hortifruti</a>
-                <a href="/AtividadePW/scr/html/CatLimpeza.html">Limpeza</a>
-                <a href="/AtividadePW/scr/html/CatNaoP.html">Não Perecíveis</a>
-                <a href="/AtividadePW/scr/html/CatPadaria.html">Padaria</a>
-              </div>
+                <div class="dropdown">
+                    <a href="" class="dropbtn">Categorias</a>
+                    <div class="dropdown-content">
+                        <a href="/AtividadePW/scr/html/CatAdega.html">Adega</a>
+                        <a href="/AtividadePW/scr/html/CatCarnes.html">Carnes</a>
+                        <a href="/AtividadePW/scr/html/CatHortf.html">Hortifruti</a>
+                        <a href="/AtividadePW/scr/html/CatLimpeza.html">Limpeza</a>
+                        <a href="/AtividadePW/scr/html/CatNaoP.html">Não Perecíveis</a>
+                        <a href="/AtividadePW/scr/html/CatPadaria.html">Padaria</a>
+                    </div>
+                </div>
+                <a href="/AtividadePW/scr/html/CarrinhoCompras.html">Carrinho</a>
             </div>
-            <a href="/AtividadePW/scr/html/CarrinhoCompras.html">Carrinho</a>
-          </div>
         </nav>
     </header>
 
@@ -69,7 +69,7 @@
 
             <div class="entrar">
                 <p>Ja tem uma conta? <a href="/AtividadePW/scr/html/login.html">Fazer login</a></p>
-                <input type="submit" value="Entrar">
+                <input type="submit" value="Cadastrar">
             </div>
         </form>
 
@@ -77,94 +77,88 @@
     </div>
 
     <script>
-
         const nome = document.getElementById('nome');
         const email = document.getElementById('email');
         const senha = document.getElementById('senha');
         const confsenha = document.getElementById('confsenha');
-
         const cepInput = document.getElementById('cep');
 
         cepInput.addEventListener('blur', async () => {
-        const cep = cepInput.value.trim();
+            const cep = cepInput.value.trim();
 
-        if (cep.length !== 8 || isNaN(cep)) {
-            alert("Digite um CEP válido com 8 números.");
-            return;
-        }
-
-        const viaCepURL = `https://viacep.com.br/ws/${cep}/json/`;
-
-        try {
-            const response = await fetch(viaCepURL);
-            const data = await response.json();
-
-            if (data.erro) {
-            alert("CEP não encontrado.");
-            return;
+            if (cep.length !== 8 || isNaN(cep)) {
+                alert("Digite um CEP válido com 8 números.");
+                return;
             }
-            
-            document.getElementById('rua').value = data.logradouro;
-            document.getElementById('bairro').value = data.bairro;
 
-        } catch (error) {
-            alert("Erro ao buscar CEP.");
-            console.error(error);
-        }
+            const viaCepURL = `https://viacep.com.br/ws/${cep}/json/`;
+
+            try {
+                const response = await fetch(viaCepURL);
+                const data = await response.json();
+
+                if (data.erro) {
+                    alert("CEP não encontrado.");
+                    return;
+                }
+                
+                document.getElementById('rua').value = data.logradouro;
+                document.getElementById('bairro').value = data.bairro;
+
+            } catch (error) {
+                alert("Erro ao buscar CEP.");
+                console.error(error);
+            }
         });
 
         const form = document.getElementById('formCadastro');
         form.addEventListener('submit', function (event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    if (!nome.value.trim() || !email.value.trim() || !senha.value || !confsenha.value) {
-        alert("Por favor, preencha todos os campos obrigatórios.");
-        return;
-    }
+            if (!nome.value.trim() || !email.value.trim() || !senha.value || !confsenha.value) {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+                return;
+            }
 
-    if (nome.value.trim().length < 3){
-        alert('O nome deve ter pelo menos 3 caracteres');
-        return;
-    }
+            if (nome.value.trim().length < 3){
+                alert('O nome deve ter pelo menos 3 caracteres');
+                return;
+            }
 
-    const partesEmail = email.value.trim().split('@');
-    if (
-        partesEmail.length !== 2 ||
-        partesEmail[0].length < 7 ||
-        partesEmail[1].length < 5
-    ) {
-        alert("E-mail inválido. Deve ter pelo menos 7 caracteres antes do @ e 5 depois.");
-        return;
-    }
+            const partesEmail = email.value.trim().split('@');
+            if (
+                partesEmail.length !== 2 ||
+                partesEmail[0].length < 7 ||
+                partesEmail[1].length < 5
+            ) {
+                alert("E-mail inválido. Deve ter pelo menos 7 caracteres antes do @ e 5 depois.");
+                return;
+            }
 
-        if (senha.value.trim().length < 5){
-            alert('A senha deve ter pelo menos 5 caracteres');
-            return;
-        }
+            if (senha.value.trim().length < 5){
+                alert('A senha deve ter pelo menos 5 caracteres');
+                return;
+            }
 
-        if (senha.value !== confsenha.value) {
-            alert("As senhas devem ser iguais");
-            return;
-        }
+            if (senha.value !== confsenha.value) {
+                alert("As senhas devem ser iguais");
+                return;
+            }
 
-        const usuario = {
-        nome: nome.value.trim(),
-        email: email.value.trim(),
-        cep: cepInput.value.trim(),
-        rua: document.getElementById('rua').value.trim(),
-        bairro: document.getElementById('bairro').value.trim(),
-        senha: senha.value.trim() 
-    };
+            const usuario = {
+                nome: nome.value.trim(),
+                email: email.value.trim(),
+                cep: cepInput.value.trim(),
+                rua: document.getElementById('rua').value.trim(),
+                bairro: document.getElementById('bairro').value.trim(),
+                senha: senha.value.trim() 
+            };
 
-        localStorage.setItem('usuarioCadastro', JSON.stringify(usuario));
-
-        alert("Cadastro realizado com sucesso!");
-
-        form.submit();
-    });
-
-
+            localStorage.setItem('usuarioCadastro', JSON.stringify(usuario));
+            alert("Cadastro realizado com sucesso!");
+            
+            window.location.href = '/AtividadePW/scr/html/login.html';
+        });
     </script>
-
 </body>
 </html>

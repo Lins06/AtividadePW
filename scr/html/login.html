@@ -10,24 +10,24 @@
 <body>
     <header class="header">
         <nav>
-          <a href="" class="logo">Carrinho Online</a>
-          <div class="nav-links">
-            <a href="/AtividadePW/scr/html/login.html">Login</a>
-            <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
+            <a href="" class="logo">Carrinho Online</a>
+            <div class="nav-links">
+                <a href="/AtividadePW/scr/html/login.html">Login</a>
+                <a href="/AtividadePW/scr/html/TelaInicial.html">Tela Inicial</a>
 
-            <div class="dropdown">
-              <a href="#" class="dropbtn">Categorias</a>
-              <div class="dropdown-content">
-                <a href="/AtividadePW/scr/html/CatAdega.html">Adega</a>
-                <a href="/AtividadePW/scr/html/CatCarnes.html">Carnes</a>
-                <a href="/AtividadePW/scr/html/CatHortf.html">Hortifruti</a>
-                <a href="/AtividadePW/scr/html/CatLimpeza.html">Limpeza</a>
-                <a href="/AtividadePW/scr/html/CatNaoP.html">Não Perecíveis</a>
-                <a href="/AtividadePW/scr/html/CatPadaria.html">Padaria</a>
-              </div>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn">Categorias</a>
+                    <div class="dropdown-content">
+                        <a href="/AtividadePW/scr/html/CatAdega.html">Adega</a>
+                        <a href="/AtividadePW/scr/html/CatCarnes.html">Carnes</a>
+                        <a href="/AtividadePW/scr/html/CatHortf.html">Hortifruti</a>
+                        <a href="/AtividadePW/scr/html/CatLimpeza.html">Limpeza</a>
+                        <a href="/AtividadePW/scr/html/CatNaoP.html">Não Perecíveis</a>
+                        <a href="/AtividadePW/scr/html/CatPadaria.html">Padaria</a>
+                    </div>
+                </div>
+                <a href="/AtividadePW/scr/html/CarrinhoCompras.html">Carrinho</a>
             </div>
-            <a href="/AtividadePW/scr/html/CarrinhoCompras.html">Carrinho</a>
-          </div>
         </nav>
     </header>
 
@@ -49,12 +49,11 @@
                 <p>Ainda nao tem uma conta? <a href="/AtividadePW/scr/html/cadastro.html">Crie uma</a></p>
                 <input type="submit" value="Entrar">
             </div>
-      </form>
+        </form>
     </div>
 
     <script>
-
-         const formLogin = document.getElementById('formLogin');
+        const formLogin = document.getElementById('formLogin');
         const emailInput = document.getElementById('email');
         const senhaInput = document.getElementById('senha');
 
@@ -67,18 +66,21 @@
             const usuarioSalvo = localStorage.getItem('usuarioCadastro');
 
             if (!usuarioSalvo) {
-                alert('Login ou senha incorretos');
+                alert('Login ou senha incorretos.');
                 return;
             }
 
             const usuario = JSON.parse(usuarioSalvo);
 
-            alert('Login realizado com sucesso!');
-            window.location.href = '/AtividadePW/scr/html/TelaInicial.html';
-            });
-
-            localStorage.setItem('usuarioLogado', 'true');
-            localStorage.setItem('nomeUsuario', usuario.nome);
+            if (email === usuario.email && senha === usuario.senha) {
+                localStorage.setItem('usuarioLogado', 'true');
+                localStorage.setItem('nomeUsuario', usuario.nome);
+                alert('Login realizado com sucesso!');
+                window.location.href = '/AtividadePW/scr/html/TelaInicial.html';
+            } else {
+                alert('Login ou senha incorretos.');
+            }
+        });
 
     </script>
 </body>
