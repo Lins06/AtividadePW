@@ -18,6 +18,7 @@ Este repositório contém o desenvolvimento de um site que simula o processo de 
 ## 📁 Repositório
 
 🔗 GitHub: [https://github.com/Lins06/AtividadePW](https://github.com/Lins06/AtividadePW)
+🔗 Pages(Link para acessar o site): https://lins06.github.io/AtividadePW/scr/html/login
 
 ---
 
